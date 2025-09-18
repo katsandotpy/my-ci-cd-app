@@ -19,7 +19,7 @@ jobs:
         run: python -c "from app import app; print('App imported successfully')"
 
   build-and-push:
-    name: Build and Push to GHSR
+    name: Build and Push to GHCR
     runs-on: ubuntu-latest
     needs: test-python
     permissions:
@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Log in to GHSR
+      - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
